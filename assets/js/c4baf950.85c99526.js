@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[509],{4410:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/fxxizan/Timer-module/blob/master","baseUrl":"/Timer-module/","classOrder":[],"apiCategories":[]}')}}]);
