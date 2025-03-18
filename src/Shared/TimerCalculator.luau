@@ -18,10 +18,11 @@ local TimerCalculator = {}
 
 	@param Time -- The time increment you want to pass
 	@return string -- The converted format
+	@within TimerCalculator
 ]=]
 
 local function ConvertToDisplayableFormat(Time : number) : string
-    if Time < 10 then
+	if Time < 10 then
 		return "0"..tostring(Time)
 	else
 		return tostring(Time)
@@ -31,25 +32,25 @@ end
 --[=[
 	Calculates the time and returns it as a text format straight for your timer text
 
-    @error "Potential overflow" -- You shouldn't call this when the timer playing value is false otherwise the timer will continue to run
-    
+	@error "Potential overflow" -- You shouldn't call this when the timer playing value is false otherwise the timer will continue to run
 	@return string -- The current in-game time
+	@within TimerCalculator
 ]=]
 
 function TimerCalculator:CalculateTime() : string
-    if TimerStartValue.Value == 0 then
-        return "00:00"
-    end
+	if TimerStartValue.Value == 0 then
+		return "00:00"
+	end
 
-    local TotalSeconds = (workspace:GetServerTimeNow() - TimerStartValue.Value) / SecondsLength.Value
+	local TotalSeconds = (workspace:GetServerTimeNow() - TimerStartValue.Value) / SecondsLength.Value
 
-    local MinutesToDisplay = math.floor(TotalSeconds / 60) --// A minute is still 60 seconds in game or IRL
+	local MinutesToDisplay = math.floor(TotalSeconds / 60) --// A minute is still 60 seconds in game or IRL
 	local SecondsToDisplay = math.floor(TotalSeconds % 60)
 
-    MinutesToDisplay = ConvertToDisplayableFormat(MinutesToDisplay)
+	MinutesToDisplay = ConvertToDisplayableFormat(MinutesToDisplay)
 	SecondsToDisplay = ConvertToDisplayableFormat(SecondsToDisplay)
 	
-    return MinutesToDisplay..SecondsToDisplay
+	return MinutesToDisplay..SecondsToDisplay
 end
 
 return TimerCalculator

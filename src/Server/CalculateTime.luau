@@ -22,16 +22,16 @@ SecondLength.Parent = ReplicatedStorage
 --- The module that handles starting, stopping and tracking the timer
 
 local TimerModule = {
-    Minutes = 0 :: number,
-    Seconds = 0 :: number,
+	Minutes = 0 :: number,
+	Seconds = 0 :: number,
 
-    HalfTimes = {45, 90, 105, 120}
+	HalfTimes = {45, 90, 105, 120}
 }
 
 
 --[=[
 	This function sets the new time of the scoreboard. We usually use this for fixing the client time if the timer stops for a while and then restarts
-    You might want to note that this automatically adjusts for overflows (e.g trying to set the time to 3:80 will adjust it to 4:20)
+	You might want to note that this automatically adjusts for overflows (e.g trying to set the time to 3:80 will adjust it to 4:20)
 
 	@param Minutes number -- The minute you want to set the timer to
 	@param Seconds number -- The second you want to set the timer to
@@ -56,35 +56,35 @@ end
 
 --[=[
 	This starts the timer for the client to track
-    
-    NOTE: This doesn't account for extra time, you'll have to add that yourself
+	
+	NOTE: This doesn't account for extra time, you'll have to add that yourself
 ]=]
 
 function TimerModule:StartTimer()
-    TimerPlayingValue.Value = true
-    TimerModule:SetTimerTime(TimerModule.Minutes, TimerModule.Seconds)
+	TimerPlayingValue.Value = true
+	TimerModule:SetTimerTime(TimerModule.Minutes, TimerModule.Seconds)
 
-    task.spawn(function()
-        while true do
-            task.wait(0.05) --// We have to update quite frequently otherwise the server and client times desync so if the timer stops and starts again the timer will be wrong
+	task.spawn(function()
+		while true do
+			task.wait(0.05) --// We have to update quite frequently otherwise the server and client times desync so if the timer stops and starts again the timer will be wrong
 
-            if TimerPlayingValue.Value == false then
+			if TimerPlayingValue.Value == false then
 				break
 			end
 
 			if table.find(TimerModule.HalfTimes, TimerModule.Minutes) then	
 				break
 			else
-                local TotalSecondsPassed = math.floor((workspace:GetServerTimeNow() - TimeStartValue.Value) / SecondLength.Value)
+				local TotalSecondsPassed = math.floor((workspace:GetServerTimeNow() - TimeStartValue.Value) / SecondLength.Value)
 
-                local MinutesPassed = math.floor(TotalSecondsPassed / 60)
-                local SecondsPassed = math.floor(TotalSecondsPassed % 60)
-    
+				local MinutesPassed = math.floor(TotalSecondsPassed / 60)
+				local SecondsPassed = math.floor(TotalSecondsPassed % 60)
+	
 				TimerModule.Minutes = MinutesPassed
 				TimerModule.Seconds = SecondsPassed
 			end
-        end
-    end)
+		end
+	end)
 end
 
 --[=[
@@ -92,7 +92,7 @@ end
 ]=]
 
 function TimerModule:StopTimer()
-    TimerPlayingValue.Value = false
+	TimerPlayingValue.Value = false
 end
 
 return TimerModule

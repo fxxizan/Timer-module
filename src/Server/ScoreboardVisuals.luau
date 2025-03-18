@@ -45,19 +45,19 @@ local TimerModule = require("./CalculateTime")
 --- @param NewValue The new value
 
 function ScoreboardVisuals:UpdateValue(Team : Teams, ValueType : EligibleValueType, NewValue : string | number)
-    local ValueToChange = ReplicatedStorage:FindFirstChild(Team..ValueType) :: (StringValue | IntValue)?
+	local ValueToChange = ReplicatedStorage:FindFirstChild(Team..ValueType) :: (StringValue | IntValue)?
 
-    if ValueToChange ~= nil then
-        ValueToChange.Value = NewValue
-    end
+	if ValueToChange ~= nil then
+		ValueToChange.Value = NewValue
+	end
 end
 
 function ScoreboardVisuals:StartTimer()
-    TimerModule:StartTimer()
+	TimerModule:StartTimer()
 end
 
 function ScoreboardVisuals:StopTimer()
-    TimerModule:StopTimer()
+	TimerModule:StopTimer()
 end
 
 return ScoreboardVisuals
