@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[35],{7676:e=>{e.exports=JSON.parse('[{"type":"link","href":"/api/TimerCalculator","label":"\u200bTimer\u200bCalculator"},{"type":"link","href":"/api/TimerModule","label":"\u200bTimer\u200bModule"},{"type":"link","href":"/api/VisualHandler","label":"\u200bVisual\u200bHandler"}]')}}]);

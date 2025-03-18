@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[23],{6662:e=>{e.exports=JSON.parse('[{"value":"Functions","id":"functions","level":2},{"value":":SetTimerTime","id":"SetTimerTime","level":3},{"value":":StartTimer","id":"StartTimer","level":3},{"value":":StopTimer","id":"StopTimer","level":3}]')}}]);
