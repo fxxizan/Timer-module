@@ -12,7 +12,6 @@ type NewValues = string | number
 	The module that handles changing the visual stuff of the scoreboard
 ]=]
 
-
 local ScoreboardVisuals = {}
 
 -- I hate this sigh
@@ -39,10 +38,14 @@ AwayName.Parent = ReplicatedStorage
 
 local TimerModule = require("./CalculateTime")
 
----	This function just sets the new value of a certain value of the team you specify.
---- @param Team The team you want to change the value of
---- @param ValueType The type of value you want to change
---- @param NewValue The new value
+--[=[
+	This function just sets the new value of a certain value of the team you specify.
+
+	@param Team The team you want to change the value of
+	@param ValueType The type of value you want to change
+	@param NewValue The new value
+	@within VisualHandler
+]=]
 
 function ScoreboardVisuals:UpdateValue(Team : Teams, ValueType : EligibleValueType, NewValue : string | number)
 	local ValueToChange = ReplicatedStorage:FindFirstChild(Team..ValueType) :: (StringValue | IntValue)?
