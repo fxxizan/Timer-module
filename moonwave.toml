@@ -9,6 +9,8 @@ classOrder = []
 onBrokenLinks = "throw"
 onBrokenMarkdownLinks = "warn"
 favicon = "https://images-ext-1.discordapp.net/external/Eoiq1BMsMwpW8qnkJiqMtvEhRsFaW-X-37aFsFSSQd0/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1348266414066372620/5517ec0a3363f2ae54b0c0d71c163e16.png?format=webp&quality=lossless"
+url = "https://fxxizan.github.io"
+baseUrl = "/Timer-module"
 
 [footer]
 style = "dark"
