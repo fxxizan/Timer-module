@@ -50,7 +50,7 @@ function TimerCalculator:CalculateTime() : string
 	MinutesToDisplay = ConvertToDisplayableFormat(MinutesToDisplay)
 	SecondsToDisplay = ConvertToDisplayableFormat(SecondsToDisplay)
 	
-	return MinutesToDisplay..SecondsToDisplay
+	return MinutesToDisplay.. ":" ..SecondsToDisplay
 end
 
 return TimerCalculator
