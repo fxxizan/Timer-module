@@ -73,7 +73,8 @@ function TimerModule:StartTimer()
 			end
 
 			if table.find(TimerModule.HalfTimes, TimerModule.Minutes) then	
-				break
+				TimerModule:StopTimer()
+                                break
 			else
 				local TotalSecondsPassed = math.floor((workspace:GetServerTimeNow() - TimeStartValue.Value) / SecondLength.Value)
 
